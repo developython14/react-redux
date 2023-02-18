@@ -1,10 +1,10 @@
 import './App.css';
 import { Counter } from './componanat/counter';
-import Comment from './componanat/test';
+import Test_devices from './componanat/Test_Camera';
 function App() {
   return (
     <div className="App">
-   <Comment/>
+   <Test_devices/>
     </div>
   );
 }
