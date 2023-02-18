@@ -4,7 +4,6 @@ import Comment from './componanat/test';
 function App() {
   return (
     <div className="App">
-   <Counter/>
    <Comment/>
     </div>
   );
