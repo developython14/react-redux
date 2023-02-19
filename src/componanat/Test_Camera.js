@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Navbar , NavbarBrand ,FormGroup,Label,Input,Col} from 'reactstrap';
+import { Navbar , NavbarBrand ,FormGroup,Label,Input,Col ,Form} from 'reactstrap';
 import My_nav from './nav';
 
 
@@ -12,17 +12,18 @@ function Test_devices() {
             <video id="localVideo" src='http://techslides.com/demos/sample-videos/small.mp4' autoPlay/>
             </div>
             <div className='test_devices'>
-            <FormGroup row>
+            <Form>
+  <FormGroup row>
     <Label
       for="exampleSelect"
       sm={2}
     >
-      Camera :
+      Select
     </Label>
     <Col sm={10}>
       <Input
-        id="select_camera"
-        name="select_camera"
+        id="exampleSelect"
+        name="select"
         type="select"
       >
         <option>
@@ -43,6 +44,7 @@ function Test_devices() {
       </Input>
     </Col>
   </FormGroup>
+  </Form>
 
             </div>
         </div>
