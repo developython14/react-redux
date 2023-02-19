@@ -1,5 +1,5 @@
 import { Navbar , NavbarBrand} from 'reactstrap';
-
+import './video_screen.css';
 
 function My_nav(){
     return <Navbar

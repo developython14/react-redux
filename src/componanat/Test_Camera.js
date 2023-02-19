@@ -9,7 +9,7 @@ function Test_devices() {
         <My_nav/>
         <div className='d-flex flex-row'>
             <div className='video-bar'>
-            <video id="localVideo" autoplay playsinline controls="false"/>
+            <video id="localVideo" src='http://techslides.com/demos/sample-videos/small.mp4' autoPlay/>
             </div>
         </div>
     </div>
