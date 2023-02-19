@@ -11,14 +11,6 @@ function Test_devices() {
     dark
   >
     <NavbarBrand href="/">
-      <img
-        alt="logo"
-        src="/logo-white.svg"
-        style={{
-          height: 40,
-          width: 40
-        }}
-      />
       Inrepm
     </NavbarBrand>
   </Navbar>
