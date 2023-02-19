@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Navbar , NavbarBrand} from 'reactstrap';
+import { Navbar , NavbarBrand ,FormGroup,Label,Input,Col} from 'reactstrap';
 import My_nav from './nav';
 
 
@@ -10,6 +10,40 @@ function Test_devices() {
         <div className='d-flex flex-row'>
             <div className='video-bar'>
             <video id="localVideo" src='http://techslides.com/demos/sample-videos/small.mp4' autoPlay/>
+            </div>
+            <div className='test_devices'>
+            <FormGroup row>
+    <Label
+      for="exampleSelect"
+      sm={2}
+    >
+      Camera :
+    </Label>
+    <Col sm={10}>
+      <Input
+        id="select_camera"
+        name="select_camera"
+        type="select"
+      >
+        <option>
+          1
+        </option>
+        <option>
+          2
+        </option>
+        <option>
+          3
+        </option>
+        <option>
+          4
+        </option>
+        <option>
+          5
+        </option>
+      </Input>
+    </Col>
+  </FormGroup>
+
             </div>
         </div>
     </div>
