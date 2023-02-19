@@ -4,6 +4,14 @@ import My_nav from './nav';
 
 
 async function Test_devices() {
+    const  play = ()=>{
+        const constraints = {'video': true, 'audio': true};
+        const stream = navigator.mediaDevices.getUserMedia(constraints).then(()=>{  
+        const videoElement = document.querySelector('video#localVideo');
+        videoElement.srcObject = stream;
+    });  
+}
+    
     const constraints = {'video': true, 'audio': true};
     const stream = await navigator.mediaDevices.getUserMedia(constraints);
     return <div>
