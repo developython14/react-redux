@@ -4,6 +4,20 @@ import My_nav from './nav';
 
 
 function Test_devices() {
+    const startVideo = () => {
+		navigator.getUserMedia(
+			{
+				video: true,
+			},
+			(stream) => {
+				let video = document.querySelector('video#localVideo');
+				if (video) {
+					video.srcObject = stream;
+				}
+			},
+			(err) => console.error(err)
+		);
+	};
     const  play = ()=>{
         const constraints = {'video': true, 'audio': true};
         const stream = navigator.mediaDevices.getUserMedia(constraints).then(()=>{  
@@ -58,7 +72,7 @@ function Test_devices() {
             </FormGroup>
             <a href="#" class="myButton">Join Room</a>
             <a href="#" class="myButton1">Test devices</a>
-            <button onClick={play}></button>
+            <button onClick={startVideo}>Start</button>
             </div>
         </div>
     </div>
