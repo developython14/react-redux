@@ -6,7 +6,7 @@ import { Navbar , NavbarBrand} from 'reactstrap';
 function Test_devices() {
     
     return <Navbar
-    className="my-2"
+    className=""
     color="dark"
     dark
   >
