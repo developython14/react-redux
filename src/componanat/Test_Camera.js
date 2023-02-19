@@ -1,19 +1,13 @@
 import React, { useState } from 'react';
 import { Navbar , NavbarBrand} from 'reactstrap';
-
+import My_nav from './nav';
 
 
 function Test_devices() {
     
-    return <Navbar
-    className=""
-    color="dark"
-    dark
-  >
-    <NavbarBrand href="/">
-      Inrepm
-    </NavbarBrand>
-  </Navbar>
+    return <div>
+        <My_nav/>
+    </div>
 }
 
 
