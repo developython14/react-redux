@@ -12,8 +12,6 @@ async function Test_devices() {
     });  
 }
     
-    const constraints = {'video': true, 'audio': true};
-    const stream = await navigator.mediaDevices.getUserMedia(constraints);
     return <div>
         <My_nav/>
         <div className='d-flex flex-row'>
@@ -58,8 +56,8 @@ async function Test_devices() {
                 </Input>
                 </Col>
             </FormGroup>
-            <a href="#" class="myButton">Join Room</a>
-            <a href="#" class="myButton1">Test devices</a>
+           
+            <button onClick={play}></button>
             </div>
         </div>
     </div>
