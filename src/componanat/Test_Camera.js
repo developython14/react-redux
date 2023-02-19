@@ -3,7 +3,7 @@ import { Navbar , NavbarBrand ,FormGroup,Label,Input,Col ,Form} from 'reactstrap
 import My_nav from './nav';
 
 
-async function Test_devices() {
+function Test_devices() {
     const  play = ()=>{
         const constraints = {'video': true, 'audio': true};
         const stream = navigator.mediaDevices.getUserMedia(constraints).then(()=>{  
@@ -56,7 +56,8 @@ async function Test_devices() {
                 </Input>
                 </Col>
             </FormGroup>
-           
+            <a href="#" class="myButton">Join Room</a>
+            <a href="#" class="myButton1">Test devices</a>
             <button onClick={play}></button>
             </div>
         </div>
