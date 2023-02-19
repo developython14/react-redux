@@ -3,49 +3,55 @@ import { Navbar , NavbarBrand ,FormGroup,Label,Input,Col ,Form} from 'reactstrap
 import My_nav from './nav';
 
 
-function Test_devices() {
-    
+async function Test_devices() {
+    const constraints = {'video': true, 'audio': true};
+    const stream = await navigator.mediaDevices.getUserMedia(constraints);
     return <div>
         <My_nav/>
         <div className='d-flex flex-row'>
             <div className='video-bar'>
-            <video id="localVideo" src='http://techslides.com/demos/sample-videos/small.mp4' autoPlay/>
+            <video id="localVideo" src='stream' autoPlay/>
             </div>
-            <div className='test_devices'>
-            <Form>
-  <FormGroup row>
-    <Label
-      for="exampleSelect"
-      sm={2}
-    >
-      Select
-    </Label>
-    <Col sm={10}>
-      <Input
-        id="exampleSelect"
-        name="select"
-        type="select"
-      >
-        <option>
-          1
-        </option>
-        <option>
-          2
-        </option>
-        <option>
-          3
-        </option>
-        <option>
-          4
-        </option>
-        <option>
-          5
-        </option>
-      </Input>
-    </Col>
-  </FormGroup>
-  </Form>
+            <div className='test_devices d-flex flex-column justify-content-evenly'>
+            <FormGroup className='d-flex flex-row justify-content-evenly align-items-center ' >
+                <Label
+                for="exampleSelect"
 
+                >
+                Camera :
+                </Label>
+                <Col >
+                <Input
+                    id="exampleSelect"
+                    name="select"
+                    type="select"
+                >
+                    <option>
+                    1
+                    </option>
+                </Input>
+                </Col>
+            </FormGroup>
+            <FormGroup className='d-flex flex-row justify-content-evenly align-items-center ' >
+                <Label
+                for="exampleSelect"
+                >
+                Sound :
+                </Label>
+                <Col >
+                <Input
+                    id="exampleSelect"
+                    name="select"
+                    type="select"
+                >
+                    <option>
+                    1
+                    </option>
+                </Input>
+                </Col>
+            </FormGroup>
+            <a href="#" class="myButton">Join Room</a>
+            <a href="#" class="myButton1">Test devices</a>
             </div>
         </div>
     </div>
