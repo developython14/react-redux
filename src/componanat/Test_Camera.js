@@ -2,31 +2,38 @@ import React, { useState } from 'react';
 import { Navbar , NavbarBrand ,FormGroup,Label,Input,Col ,Form} from 'reactstrap';
 import My_nav from './nav';
 
+import { ReactMediaRecorder } from "react-media-recorder";
+
+const RecordView = () => (
+  <div>
+    <ReactMediaRecorder
+      video
+      render={({ status, startRecording, stopRecording, mediaBlobUrl }) => (
+        <div>
+          <p>{status}</p>
+          <button onClick={startRecording}>Start Recording</button>
+          <button onClick={stopRecording}>Stop Recording</button>
+          <video src={mediaBlobUrl} controls autoPlay loop />
+        </div>
+      )}
+    />
+  </div>
+);
+
+
 
 function Test_devices() {
-    const startVideo = () => {
-		navigator.getUserMedia(
-			{
-				video: true,
-			},
-			(stream) => {
-				let video = document.querySelector('video#localVideo');
-				if (video) {
-					video.srcObject = stream;
-				}
-			},
-			(err) => console.error(err)
-		);
-	};
-    const  play = ()=>{
+    const startVideo = async() => {
         const constraints = {'video': true, 'audio': true};
-        const stream = navigator.mediaDevices.getUserMedia(constraints).then(()=>{  
+        const stream = await navigator.mediaDevices.getUserMedia(constraints);
         const videoElement = document.querySelector('video#localVideo');
         videoElement.srcObject = stream;
-    });  
-}
+	};
+    startVideo();
+
     
     return <div>
+        <RecordView/>
         <My_nav/>
         <div className='d-flex flex-row'>
             <div className='video-bar'>
@@ -72,7 +79,6 @@ function Test_devices() {
             </FormGroup>
             <a href="#" class="myButton">Join Room</a>
             <a href="#" class="myButton1">Test devices</a>
-            <button onClick={startVideo}>Start</button>
             </div>
         </div>
     </div>
