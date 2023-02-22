@@ -27,8 +27,9 @@ function Test_devices() {
         listElement.innerHTML = '';
         list_cameras.map(camera => {
             const cameraOption = document.createElement('option');
-            cameraOption.label = camera.label;
+            cameraOption.label = 'allo';
             cameraOption.value = camera.deviceId;
+            return cameraOption
         }).forEach(cameraOption => listElement.add(cameraOption));
         const listElement_audio = document.querySelector('select#availableaudios');
         listElement.innerHTML = '';
@@ -36,6 +37,7 @@ function Test_devices() {
             const cameraOption = document.createElement('option');
             cameraOption.label = camera.label;
             cameraOption.value = camera.deviceId;
+            return cameraOption
         }).forEach(cameraOption => listElement.add(cameraOption));
     }
     startVideo();
@@ -77,9 +79,6 @@ function Test_devices() {
                     name="select"
                     type="select"
                 >
-                    <option>
-                    1
-                    </option>
                 </Input>
                 </Col>
             </FormGroup>
