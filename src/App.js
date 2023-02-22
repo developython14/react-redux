@@ -2,10 +2,10 @@ import './App.css';
 import { Counter } from './componanat/counter';
 import Test_devices from './componanat/Test_Camera';
 import { useReactMediaRecorder  } from "react-media-recorder";
-
+import Free from './componanat/free';
 const RecordView = () => {
   const { status, startRecording, stopRecording, mediaBlobUrl } =
-    useReactMediaRecorder({ video: true  , facingMode: { exact: "environment" }});
+    useReactMediaRecorder({ video: true  });
 
   return (
     <div>
@@ -24,5 +24,7 @@ function App() {
     </div>
   );
 }
+
+
 
 export default App;
