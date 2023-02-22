@@ -4,8 +4,8 @@ import My_nav from './nav';
 
 
 
-function Cameras(prpos){
-    const list_cams = prpos.map((dish) => {return (<p>hadi options</p>)});
+function Cameras(props){
+    const list_cams = props.list_cameras.map((dish) => {return (<p>hadi options</p>)});
     return list_cams;
 
 }
@@ -50,7 +50,7 @@ function Test_devices() {
                     name="select"
                     type="select"
                 >
-                    <Cameras/>
+                    <Cameras list_cameras/>
                 </Input>
                 </Col>
             </FormGroup>
