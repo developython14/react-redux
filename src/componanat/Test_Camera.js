@@ -5,14 +5,14 @@ import My_nav from './nav';
 
 
 function Cameras(props){
-    const list_cams = props.list_cameras.map((dish) => {return (<p>hadi options</p>)});
+    const list_cams = props.list_cameras.map((opt) => {return (<option key={opt.id} value = {opt.deviceId} >{opt.deviceId}</option>)});
+    console.log('function here caled succesfly and thies componant ');
+    console.log(list_cams)
     return list_cams;
 
 }
 
 function Test_devices() {
-    var list_cameras = [];
-    var list_audios = [];
     const startVideo = async() => {
         const constraints = {'video': true, 'audio': false};
         const stream = await navigator.mediaDevices.getUserMedia(constraints);
@@ -21,11 +21,22 @@ function Test_devices() {
 	};
     async function getConnectedDevices_camera() {
         const devices = await navigator.mediaDevices.enumerateDevices();
-        console.log('hado devices');
-        console.log(devices);
         list_cameras =  devices.filter(device => device.kind === 'videoinput');
         list_audios = devices.filter(device => device.kind === 'audioinput');
-        console.log(list_cameras);
+        const listElement = document.querySelector('select#availableCameras');
+        listElement.innerHTML = '';
+        list_cameras.map(camera => {
+            const cameraOption = document.createElement('option');
+            cameraOption.label = camera.label;
+            cameraOption.value = camera.deviceId;
+        }).forEach(cameraOption => listElement.add(cameraOption));
+        const listElement_audio = document.querySelector('select#availableaudios');
+        listElement.innerHTML = '';
+        list_audios.map(camera => {
+            const cameraOption = document.createElement('option');
+            cameraOption.label = camera.label;
+            cameraOption.value = camera.deviceId;
+        }).forEach(cameraOption => listElement.add(cameraOption));
     }
     startVideo();
     getConnectedDevices_camera();
@@ -46,11 +57,11 @@ function Test_devices() {
                 </Label>
                 <Col >
                 <Input
-                    id="exampleSelect"
+                    id="availableCameras"
                     name="select"
                     type="select"
                 >
-                    <Cameras list_cameras/>
+                
                 </Input>
                 </Col>
             </FormGroup>
@@ -62,7 +73,7 @@ function Test_devices() {
                 </Label>
                 <Col >
                 <Input
-                    id="exampleSelect"
+                    id="availableaudios"
                     name="select"
                     type="select"
                 >
@@ -72,8 +83,8 @@ function Test_devices() {
                 </Input>
                 </Col>
             </FormGroup>
-            <a href="#" class="myButton">Join Room</a>
-            <a href="#" class="myButton1">Test devices</a>
+            <a href="#" className="myButton">Join Room</a>
+            <a href="#" className="myButton1">Test devices</a>
             </div>
         </div>
     </div>
