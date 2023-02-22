@@ -21,8 +21,8 @@ function Test_devices() {
 	};
     async function getConnectedDevices_camera() {
         const devices = await navigator.mediaDevices.enumerateDevices();
-        list_cameras =  devices.filter(device => device.kind === 'videoinput');
-        list_audios = devices.filter(device => device.kind === 'audioinput');
+        var list_cameras =  devices.filter(device => device.kind === 'videoinput');
+        var list_audios = devices.filter(device => device.kind === 'audioinput');
         const listElement = document.querySelector('select#availableCameras');
         listElement.innerHTML = '';
         list_cameras.map(camera => {
