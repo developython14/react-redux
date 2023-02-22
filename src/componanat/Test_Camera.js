@@ -4,13 +4,7 @@ import My_nav from './nav';
 
 
 
-function Cameras(props){
-    const list_cams = props.list_cameras.map((opt) => {return (<option key={opt.id} value = {opt.deviceId} >{opt.deviceId}</option>)});
-    console.log('function here caled succesfly and thies componant ');
-    console.log(list_cams)
-    return list_cams;
 
-}
 
 function Test_devices() {
     const startVideo = async() => {
@@ -19,29 +13,32 @@ function Test_devices() {
         const videoElement = document.querySelector('video#localVideo');
         videoElement.srcObject = stream;
 	};
-    async function getConnectedDevices_camera() {
+    const getDevices = async() =>{
         const devices = await navigator.mediaDevices.enumerateDevices();
+        console.log('hadi devs');
+        console.log(devices);
         var list_cameras =  devices.filter(device => device.kind === 'videoinput');
         var list_audios = devices.filter(device => device.kind === 'audioinput');
         const listElement = document.querySelector('select#availableCameras');
         listElement.innerHTML = '';
         list_cameras.map(camera => {
             const cameraOption = document.createElement('option');
-            cameraOption.label = 'allo';
+            cameraOption.label = camera.label;
             cameraOption.value = camera.deviceId;
             return cameraOption
         }).forEach(cameraOption => listElement.add(cameraOption));
         const listElement_audio = document.querySelector('select#availableaudios');
-        listElement.innerHTML = '';
+        listElement_audio.innerHTML = '';
         list_audios.map(camera => {
             const cameraOption = document.createElement('option');
             cameraOption.label = camera.label;
             cameraOption.value = camera.deviceId;
             return cameraOption
-        }).forEach(cameraOption => listElement.add(cameraOption));
+        }).forEach(cameraOption => listElement_audio.add(cameraOption));
     }
+
     startVideo();
-    getConnectedDevices_camera();
+    getDevices();
 
     return <div>
         <My_nav/>
