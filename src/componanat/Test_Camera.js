@@ -11,8 +11,6 @@ import { Button, Modal, ModalHeader, ModalBody, ModalFooter } from 'reactstrap';
 
 
 function Test_devices() {
-    const { status, startRecording, stopRecording, mediaBlobUrl } =
-    useReactMediaRecorder({ video: true  });
     const startVideo = async() => {
         const constraints = {'video': true, 'audio': false};
         const stream = await navigator.mediaDevices.getUserMedia(constraints);
